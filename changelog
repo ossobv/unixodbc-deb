@@ -1,3 +1,10 @@
+unixodbc (2.3.1-4.1osso0~jessie) unstable; urgency=medium
+
+  * Re-format unixodbc 2.3.1-4.1 (from sid) to use quilt-style patches.
+  * Enable it to work on debian-jessie.
+
+ -- Walter Doekes <wjdoekes@osso.nl>  Thu, 15 Sep 2016 16:26:54 +0200
+
 unixodbc (2.3.1-4.1) unstable; urgency=medium
 
   * Non-maintainer upload.
