@@ -1,3 +1,9 @@
+Description: a few build fixes -- quilted by wjdoekes
+Author: Steve Langasek (?) <vorlon@debian.org>
+Origin: http://http.debian.net/debian/pool/main/u/unixodbc/unixodbc_2.3.1-4.1.diff.gz
+Forwarded: ?
+Last-Update: 2016-09-15
+
 diff --git a/Drivers/Postgre7.1/md5.h b/Drivers/Postgre7.1/md5.h
 index 2e2429d..2b16430 100644
 --- a/Drivers/Postgre7.1/md5.h
