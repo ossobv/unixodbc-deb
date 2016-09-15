@@ -1,3 +1,12 @@
+libesoobS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+ help_strings@Base 2.3.1
+libmimerS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libodbcdrvcfg1S.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libodbcdrvcfg2S.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
 libodbcinst.so.2 odbcinst1debian2 #MINVER#
  ODBCINSTAddProperty@Base 2.3.1
  ODBCINSTConstructProperties@Base 2.3.1
@@ -83,3 +92,21 @@ libodbcinst.so.2 odbcinst1debian2 #MINVER#
  odbcinst_system_file_path@Base 2.3.1
  odbcinst_user_file_name@Base 2.3.1
  odbcinst_user_file_path@Base 2.3.1
+libodbcminiS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libodbcmyS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libodbcnnS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libodbcpsqlS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libodbctxtS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+liboplodbcS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+liboraodbcS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libsapdbS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1
+libtdsS.so.1 odbcinst1debian2 #MINVER#
+ ODBCINSTGetProperties@Base 2.3.1

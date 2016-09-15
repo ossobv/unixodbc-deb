@@ -1,5 +1,5 @@
 Source: unixodbc
-Build-Depends: debhelper (>= 9), dh-autoreconf,
+Build-Depends: debhelper (>= 8), dh-autoreconf,
 	libreadline-dev, libltdl-dev
 Build-Conflicts: unixodbc-dev
 Section: libs
