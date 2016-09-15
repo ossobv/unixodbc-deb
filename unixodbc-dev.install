@@ -1,0 +1,7 @@
+usr/lib/*/libodbc.so
+usr/lib/*/libodbccr.so
+usr/lib/*/libodbcinst.so
+usr/lib/*/libodbc.a
+usr/lib/*/libodbccr.a
+usr/lib/*/libodbcinst.a
+usr/include/*
