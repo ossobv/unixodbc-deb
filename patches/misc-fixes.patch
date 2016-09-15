@@ -1,0 +1,57 @@
+diff --git a/Drivers/Postgre7.1/md5.h b/Drivers/Postgre7.1/md5.h
+index 2e2429d..2b16430 100644
+--- a/Drivers/Postgre7.1/md5.h
++++ b/Drivers/Postgre7.1/md5.h
+@@ -21,7 +21,7 @@
+ 
+ #ifndef __cplusplus
+ 
+-#ifndef bool
++#if !defined(bool) || defined(__APPLE_ALTIVEC__)
+ typedef char bool;
+ #endif
+ 
+diff --git a/Drivers/nn/nnconfig.h b/Drivers/nn/nnconfig.h
+index c47e6de..8d13d0a 100644
+--- a/Drivers/nn/nnconfig.h
++++ b/Drivers/nn/nnconfig.h
+@@ -21,6 +21,7 @@
+ #  include	<stdlib.h>
+ #  include	<errno.h>
+ #  include	<sys/types.h>
++#  include	<string.h>
+ 
+ #  define	MEM_ALLOC(size) (malloc((size_t)(size)))
+ #  define	MEM_FREE(ptr)	{if(ptr) free(ptr);}
+diff --git a/odbcinst/SQLManageDataSources.c b/odbcinst/SQLManageDataSources.c
+index 0eea527..953eb1d 100644
+--- a/odbcinst/SQLManageDataSources.c
++++ b/odbcinst/SQLManageDataSources.c
+@@ -76,9 +76,9 @@ char *_getUIPluginName( char *pszName, char *pszUI )
+ char *_appendUIPluginExtension( char *pszNameAndExtension, char *pszName )
+ {
+     if ( strlen( SHLIBEXT ) > 0 )
+-        sprintf( pszNameAndExtension, "%s%s", pszName, SHLIBEXT );
++        sprintf( pszNameAndExtension, "%s%s.1", pszName, SHLIBEXT );
+     else
+-        sprintf( pszNameAndExtension, "%s.so", pszName );
++        sprintf( pszNameAndExtension, "%s.so.1", pszName );
+ 
+     return pszName;
+ }
+diff --git a/odbcinst/_SQLGetInstalledDrivers.c b/odbcinst/_SQLGetInstalledDrivers.c
+index b5d22ab..2ccbf07 100644
+--- a/odbcinst/_SQLGetInstalledDrivers.c
++++ b/odbcinst/_SQLGetInstalledDrivers.c
+@@ -55,9 +55,9 @@ int _SQLGetInstalledDrivers(    LPCSTR  pszSection,
+ 
+     /* PROCESS ODBC INI FILE */
+ #ifdef __OS2__
+-    if ( iniOpen( &hIni, szIniName, "#;", '[', ']', '=', 1, 1L ) != INI_SUCCESS )
++    if ( iniOpen( &hIni, szIniName, "#;", '[', ']', '=', FALSE, 1L ) != INI_SUCCESS )
+ #else
+-    if ( iniOpen( &hIni, szIniName, "#;", '[', ']', '=', 1 ) != INI_SUCCESS )
++    if ( iniOpen( &hIni, szIniName, "#;", '[', ']', '=', FALSE ) != INI_SUCCESS )
+ #endif
+     {
+         inst_logPushMsg( __FILE__, __FILE__, __LINE__, LOG_CRITICAL, ODBC_ERROR_COMPONENT_NOT_FOUND, "" );

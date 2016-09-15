@@ -1,0 +1,74 @@
+diff --git a/DriverManager/SQLConnect.c b/DriverManager/SQLConnect.c
+index 8c4ae54..8fa295f 100644
+--- a/DriverManager/SQLConnect.c
++++ b/DriverManager/SQLConnect.c
+@@ -1090,6 +1090,9 @@ int __connect_part_one( DMHDBC connection, char *driver_lib, char *driver_name,
+      */
+ 
+     lt_dlinit();
++    mutex_lib_entry();
++    lt_dlsetsearchpath(MODULEDIR);
++    mutex_lib_exit();
+ 
+     /*
+      * open the lib
+diff --git a/odbcinst/ODBCINSTConstructProperties.c b/odbcinst/ODBCINSTConstructProperties.c
+index 8703d02..b9ab4fe 100644
+--- a/odbcinst/ODBCINSTConstructProperties.c
++++ b/odbcinst/ODBCINSTConstructProperties.c
+@@ -165,6 +165,7 @@ int ODBCINSTConstructProperties( char *pszDriver, HODBCINSTPROPERTY *hFirstPrope
+      */
+ 
+     lt_dlinit();
++    lt_dlsetsearchpath(MODULEDIR);
+ 
+ 	/* TRY GET FUNC FROM DRIVER SETUP */
+ 	if ( !(hDLL = lt_dlopen( szDriverSetup ))  )
+diff --git a/odbcinst/SQLConfigDataSource.c b/odbcinst/SQLConfigDataSource.c
+index af7f42f..a6763ff 100644
+--- a/odbcinst/SQLConfigDataSource.c
++++ b/odbcinst/SQLConfigDataSource.c
+@@ -80,6 +80,7 @@ static BOOL SQLConfigDataSourceWide(	HWND	hWnd,
+      */
+ 
+     lt_dlinit();
++    lt_dlsetsearchpath(MODULEDIR);
+ 
+ #ifdef PLATFORM64
+ 	if ( iniPropertySeek( hIni, (char *)pszDriver, "Setup64", "" ) == INI_SUCCESS || 
+diff --git a/odbcinst/SQLConfigDriver.c b/odbcinst/SQLConfigDriver.c
+index 3637381..ce7d68b 100644
+--- a/odbcinst/SQLConfigDriver.c
++++ b/odbcinst/SQLConfigDriver.c
+@@ -86,6 +86,7 @@ static BOOL SQLConfigDriverWide( HWND	hWnd,
+      */
+ 
+     lt_dlinit();
++    lt_dlsetsearchpath(MODULEDIR);
+ 
+ 	/* process request */
+ 	switch ( nRequest )
+diff --git a/odbcinst/SQLCreateDataSource.c b/odbcinst/SQLCreateDataSource.c
+index f951c5d..d2745a0 100644
+--- a/odbcinst/SQLCreateDataSource.c
++++ b/odbcinst/SQLCreateDataSource.c
+@@ -196,6 +196,7 @@ BOOL SQLCreateDataSource( HWND hWnd, LPCSTR pszDS )
+         inst_logPushMsg( __FILE__, __FILE__, __LINE__, LOG_CRITICAL, ODBC_ERROR_GENERAL_ERR, "lt_dlinit() failed" );
+         return FALSE;
+     }
++    lt_dlsetsearchpath(MODULEDIR);
+ 
+     /* get plugin name */
+     _appendUIPluginExtension( szNameAndExtension, _getUIPluginName( szName, hODBCInstWnd->szUI ) );
+diff --git a/odbcinst/SQLManageDataSources.c b/odbcinst/SQLManageDataSources.c
+index 0eea527..953eb1d 100644
+--- a/odbcinst/SQLManageDataSources.c
++++ b/odbcinst/SQLManageDataSources.c
+@@ -143,6 +143,7 @@ BOOL SQLManageDataSources( HWND hWnd )
+         inst_logPushMsg( __FILE__, __FILE__, __LINE__, LOG_CRITICAL, ODBC_ERROR_GENERAL_ERR, "lt_dlinit() failed" );
+ 		return FALSE;
+     }
++    lt_dlsetsearchpath(MODULEDIR);
+ 
+     /* get plugin name */
+     _appendUIPluginExtension( szNameAndExtension, _getUIPluginName( szName, hODBCInstWnd->szUI ) );

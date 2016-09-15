@@ -1,3 +1,8 @@
+# Build environment.
 buildenv.patch
 acinclude.patch
-sources.patch
+
+# Misc. patches.
+dlsetsearchpath.patch
+ltdl.patch
+misc-fixes.patch
