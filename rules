@@ -29,5 +29,8 @@ override_dh_makeshlibs:
 	dh_makeshlibs -X lib/$(DEB_HOST_MULTIARCH)/odbc/lib
 
 override_dh_link:
-	chmod a+x debian/libodbc1.links debian/odbcinst1debian2.links
+	echo "usr/lib/$(DEB_HOST_MULTIARCH)/libodbcinst.so.2 usr/lib/$(DEB_HOST_MULTIARCH)/libodbcinst.so.1" >debian/odbcinst1debian2.links
+	echo "usr/lib/$(DEB_HOST_MULTIARCH)/libodbc.so.2 usr/lib/$(DEB_HOST_MULTIARCH)/libodbc.so.1" >debian/libodbc1.links
+	echo "usr/lib/$(DEB_HOST_MULTIARCH)/libodbccr.so.2 usr/lib/$(DEB_HOST_MULTIARCH)/libodbccr.so.1" >>debian/libodbc1.links
+
 	dh_link
