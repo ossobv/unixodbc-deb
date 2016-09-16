@@ -1,3 +1,13 @@
+unixodbc (2.3.4-0osso0~jessie) unstable; urgency=medium
+
+  * New upstream release 2.3.4.
+    - Dropped ltdl.patch which had been included in it's entirety.
+    - Dropped acinclude.patch which wasn't needed.
+    - Moved MODULEDIR setting stuff from buildenv.patch to
+      dlsetsearchpath.patch.
+
+ -- Walter Doekes <wjdoekes@osso.nl>  Fri, 16 Sep 2016 09:30:23 +0200
+
 unixodbc (2.3.1-4.1osso0~jessie) unstable; urgency=medium
 
   * Re-format unixodbc 2.3.1-4.1 (from sid) to use quilt-style patches.
