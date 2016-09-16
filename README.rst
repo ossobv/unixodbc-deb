@@ -1,11 +1,24 @@
 Creating unixodbc packages
 ==========================
 
-Download the original tar file, from
-http://http.debian.net/debian/pool/main/u/unixodbc/unixodbc_2.3.1.orig.tar.gz
-and extract.
+Download the original tar file, from http://www.unixodbc.org/download.html
+as unixodbc_VERSION.orig.tar.gz and extract::
 
-Git clone this repository into the debian directory.
+    wget http://www.unixodbc.org/unixODBC-2.3.4.tar.gz -O unixodbc_2.3.4.orig.tar.gz
+   
+    md5sum -c << EOF
+    bd25d261ca1808c947cb687e2034be81  unixodbc_2.3.4.orig.tar.gz
+    EOF
+
+    tar zxf unixodbc_2.3.4.orig.tar.gz
+ 
+Git clone this repository into the debian directory, and choose the right branch::
+
+    cd unixODBC-2.3.4/
+    git clone https://github.com/ossobv/unixodbcdeb-osso.git debian
+    git branch -a
+
+    git checkout CHOSEN_BRANCH
 
 Optionally update the changelog.
 
