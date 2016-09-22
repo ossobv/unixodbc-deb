@@ -4,3 +4,4 @@ buildenv.patch
 # Misc. patches.
 dlsetsearchpath.patch
 misc-fixes.patch
+check_ini_cache-regression.patch

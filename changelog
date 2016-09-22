@@ -1,3 +1,11 @@
+unixodbc (2.3.4-0osso1~jessie) unstable; urgency=medium
+
+  * Added check_ini_cache-regression.patch to fix a problem with
+    the cache not being used. Details here:
+    http://mailman.unixodbc.org/pipermail/unixodbc-dev/2016-June/001892.html
+
+ -- Walter Doekes <wjdoekes@osso.nl>  Thu, 22 Sep 2016 15:01:10 +0200
+
 unixodbc (2.3.4-0osso0~jessie) unstable; urgency=medium
 
   * New upstream release 2.3.4.
