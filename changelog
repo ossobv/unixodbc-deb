@@ -1,4 +1,4 @@
-unixodbc (2.3.4-0osso1~jessie) unstable; urgency=medium
+unixodbc (2.3.4-0osso1~jessie) jessie; urgency=medium
 
   * Added check_ini_cache-regression.patch to fix a problem with
     the cache not being used. Details here:
