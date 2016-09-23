@@ -1,0 +1,42 @@
+Description: Cached entries are not being used
+Author: Joshua Colp <jcolp AT digium DOT com>
+Origin: other
+Forwarded: http://mailman.unixodbc.org/pipermail/unixodbc-dev/2016-June/001890.html
+Last-Update: 2016-09-22
+
+In the 2.3.3 release a change was made to the _check_ini_cache function
+in odbcinst/SQLGetPrivateProfileString.c to fix an issue.
+
+The code before the change was:
+
+         if ( nRetBuffer != ini_cache -> buffer_size )
+             continue;
+
+This was changed to:
+
+         if ( nRetBuffer <= ini_cache -> buffer_size )
+             continue;
+
+Unfortunately this has caused a regression where cached entries are not
+actually being used, causing the linked list to grow. In my case
+nRetBuffer is 1024 and ini_cache->buffer_size is 1024 as expected. This
+results in them being evaluated as equal and therefore skipped. Since
+I'm testing an environment where many disconnect/connect attempts are
+occurring at the same time this spirals and the cache grows out of control.
+
+...
+
+My testing so far has shown it to resolve
+the issue and performance has returned to what it was before the change.
+
+--- a/odbcinst/SQLGetPrivateProfileString.c
++++ b/odbcinst/SQLGetPrivateProfileString.c
+@@ -182,7 +182,7 @@ static int _check_ini_cache( int *ret,
+         if ( pRetBuffer && !ini_cache -> value )
+             continue;
+ 
+-        if ( nRetBuffer <= ini_cache -> buffer_size )
++        if ( nRetBuffer < ini_cache -> buffer_size )
+             continue;
+ 
+         if ( pRetBuffer )

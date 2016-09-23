@@ -5,13 +5,13 @@ Download the original tar file, from http://www.unixodbc.org/download.html
 as unixodbc_VERSION.orig.tar.gz and extract::
 
     wget http://www.unixodbc.org/unixODBC-2.3.4.tar.gz -O unixodbc_2.3.4.orig.tar.gz
-   
+
     md5sum -c << EOF
     bd25d261ca1808c947cb687e2034be81  unixodbc_2.3.4.orig.tar.gz
     EOF
 
     tar zxf unixodbc_2.3.4.orig.tar.gz
- 
+
 Git clone this repository into the debian directory, and choose the right branch::
 
     cd unixODBC-2.3.4/
@@ -57,7 +57,7 @@ Apply this patch by cd'ing into ``debian/`` and pasting this in ``patch -lp1``::
     + -- Walter Doekes <wjdoekes@osso.nl>  Wed, 14 Sep 2016 22:30:39 +0200
     +
      myodbc (5.1.10-2+deb7u1) wheezy; urgency=low
-     
+
        * Non-maintainer upload.
     diff --git a/compat b/compat
     index ec63514..45a4fb7 100644
