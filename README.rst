@@ -1,5 +1,5 @@
-Creating unixodbc packages
-==========================
+OSSO build of Unixodbc packages for Debian (2.3.1-4.1)
+======================================================
 
 Download the original tar file, from http://www.unixodbc.org/download.html
 as unixodbc_VERSION.orig.tar.gz and extract::
@@ -15,7 +15,7 @@ as unixodbc_VERSION.orig.tar.gz and extract::
 Git clone this repository into the debian directory, and choose the right branch::
 
     cd unixODBC-2.3.4/
-    git clone https://github.com/ossobv/unixodbcdeb-osso.git debian
+    git clone https://github.com/ossobv/unixodbc-deb.git debian
     git branch -a
 
     git checkout CHOSEN_BRANCH
@@ -28,7 +28,7 @@ Build::
 
 
 Creating a libmyodbc for Debian/Squeeze
-=======================================
+---------------------------------------
 
 Take the libmyodbc files from Wheezy::
 
@@ -92,7 +92,7 @@ Change directory back to ``mysql-connector-odbc-5.1.10-src/`` again and compile:
 
     # make sure you install some kind of unixodbc-dev>=2.2.11 like
     # unixodbc_2.3.1-4.1osso0~squeeze from
-    # https://github.com/ossobv/unixodbcdeb-osso/tree/squeeze
+    # https://github.com/ossobv/unixodbc-deb/tree/squeeze
 
     DEB_BUILD_OPTIONS=parallel=6 dpkg-buildpackage -us -uc -sa
 
